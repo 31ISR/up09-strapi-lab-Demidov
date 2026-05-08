@@ -8,14 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Booking extends Model
 {
     protected $fillable = [
-        'user_id',
-        'room_name',
-        'starts_at',
-        'ends_at',
-        'note'
+        'user_id','room_name','starts_at','ends_at','note'
     ];
     protected function casts():array{
-        return [
+        return[
             'starts_at' => 'datetime',
             'ends_at' => 'datetime',
         ];
@@ -23,6 +19,6 @@ class Booking extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this-> belongsTo(User::class);
     }
 }

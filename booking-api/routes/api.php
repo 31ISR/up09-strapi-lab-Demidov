@@ -13,6 +13,9 @@ Route::post('/login',[AuthController::class, 'login']);
 Route::post('/logout',[AuthController::class, 'logout']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout,' [AuthController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/bookings', [BookingController::class, 'index']);
+    Route::post('/bookings',[BookingController::class,'create']);
+
+    Route::delete('/bookings/{booking}', [BookingController::class,'destroy']);
 });
